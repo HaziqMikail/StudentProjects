@@ -35,12 +35,12 @@ A simple, beginner-friendly **PHP + HTML** web app that allows users to **add an
 
 ## 📂 Folder Structure
 
-Expense tracker/
-├── main.html # Add new expense
-├── history.php # View past expenses
-├── list.php # Save to expenses.txt
-├── expenses.txt # Stored data
-
+Expense tracker/  
+├── main.html # Add new expense  
+├── history.php # View past expenses  
+├── list.php # Save to expenses.txt  
+├── expenses.txt # Stored data  
+  
 ---
 
 ## Screenshot
