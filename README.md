@@ -40,11 +40,11 @@ Each project folder includes:
 
 ---
 
-🧑‍💻 Author
-Haziq Mikail
-Diploma in Software Engineering
-German Malaysian Institute
-💬 Passionate about clean code, real-world use cases, and building for impact.
+🧑‍💻 Author  
+Haziq Mikail  
+Diploma in Software Engineering  
+German Malaysian Institute  
+💬 Passionate about clean code, real-world use cases, and building for impact.  
 
 
 
