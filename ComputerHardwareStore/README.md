@@ -56,10 +56,10 @@ This is a simple desktop application developed using **Java (NetBeans)** for a b
 
 ## ✅ Future Improvements
 
-🔐 Add real user account management with encrypted passwords
-📊 Implement admin panel to manage inventory and view sales
-📦 Connect to a database to store items and transactions
-🖼️ Add product images and dynamic item loading from files or database
+🔐 Add real user account management with encrypted passwords  
+📊 Implement admin panel to manage inventory and view sales  
+📦 Connect to a database to store items and transactions  
+🖼️ Add product images and dynamic item loading from files or database  
 
 ---
 
