@@ -43,7 +43,16 @@ Expense tracker/
   
 ---
 
-## Screenshot
+## 🎮 Screenshot
+
+![Gameplay Screenshot](screenshots/Screenshot1.png)
+The main screen  
+![Gameplay Screenshot](screenshots/Screenshot2.png)
+User can add item based on category  
+![Gameplay Screenshot](screenshots/Screenshot3.png)
+After item is added, user can add more items or view history  
+![Gameplay Screenshot](screenshots/Screenshot5.png)
+User can view history based on month
 
 ---
 
