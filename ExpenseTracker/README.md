@@ -43,17 +43,23 @@ Expense tracker/
   
 ---
 
-## 🎮 Screenshot
+## 🖼️ Screenshots
 
-![Gameplay Screenshot](screenshots/Screenshot1.png)
-The main screen  
-![Gameplay Screenshot](screenshots/Screenshot2.png)
-User can add item based on category  
-![Gameplay Screenshot](screenshots/Screenshot3.png)
-After item is added, user can add more items or view history  
-![Gameplay Screenshot](screenshots/Screenshot5.png)
-User can view history based on month
+<img src="screenshots/Screenshot1.png" width="350"/><br/>
+**The main screen**  
+<br/>
 
+<img src="screenshots/Screenshot2.png" width="350"/><br/>
+**User can add item based on category**  
+<br/>
+
+<img src="screenshots/Screenshot3.png" width="350"/><br/>
+**After item is added, user can add more items or view history**  
+<br/>
+
+<img src="screenshots/Screenshot5.png" width="350"/><br/>
+**User can view history based on month**  
+<br/>
 ---
 
 ## ✅ Future Improvements
