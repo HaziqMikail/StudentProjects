@@ -35,10 +35,10 @@ A beginner-friendly **Java Swing GUI** project that lets users play **Tic Tac To
 
 ## 🎮 Screenshot
 
-![Gameplay Screenshot](screenshots/gameplay1.png)
+![Gameplay Screenshot](screenshots/gameplay1.png)  
 Simple 3x3 grid layout with current turn and score display.
 
-![Gameplay Screenshot](screenshots/gameplay1.png)
+![Gameplay Screenshot](screenshots/gameplay2.png)  
 The Minimax Algorithm will find the best possible move to win.
 
 ---

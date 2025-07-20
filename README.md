@@ -24,6 +24,10 @@ A desktop shopping system where users can add/remove PC parts, view item list, a
 ### 💸 Expense Tracker (PHP)
 A lightweight web app to input, list, and view daily expenses, organized by month with total calculation.
 
+### ❌⭕ Tic Tac Toe – Minimax AI
+
+A beginner-friendly Java Swing GUI project that lets users play Tic Tac Toe against an AI powered by the Minimax algorithm. 
+
 ---
 
 ## 🖥️ How to Run
