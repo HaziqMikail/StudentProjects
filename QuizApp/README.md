@@ -32,24 +32,24 @@ A simple, beginner-friendly **Java console app** that tests users on basic Java 
 
 ---
 
-## 📄 Format of `questions.txt`
+## 📄 Format of `questions.txt`  
 
-Each question must follow this structure:
+Each question must follow this structure:  
 
-Question text
-a) option 1
-b) option 2
-c) option 3
-d) option 4
-Answer: a
+Question text  
+a) option 1  
+b) option 2  
+c) option 3  
+d) option 4  
+Answer: a  
 
-Example:
-What is the output of: System.out.println(2 + "2");
-a) 22
-b) 4
-c) 2 + 2
-d) Error
-Answer: a
+Example:  
+What is the output of: System.out.println(2 + "2");  
+a) 22  
+b) 4  
+c) 2 + 2  
+d) Error  
+Answer: a  
 
 ---
 
