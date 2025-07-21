@@ -68,7 +68,7 @@ This is a simple desktop application developed using **Java (NetBeans)** for a b
 <img src="screenshots/Screenshot3.png" width="350" height="331"/><br/>  
 <br/>
 
-**4) Checkout page **    
+**4) Checkout page**    
 <img src="screenshots/Screenshot4.png" width="350" height="331"/><br/>  
 <br/>
 
