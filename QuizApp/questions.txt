@@ -1,0 +1,30 @@
+What is the output of: System.out.println(2 + "2");
+a) 22
+b) 4
+c) 2 + 2
+d) Error
+a
+Which of these is a Java keyword?
+a) method
+b) Integer
+c) class
+d) define
+c
+Which data type is used to store true/false values?
+a) char
+b) int
+c) boolean
+d) double
+c
+What is the index of the first element in an array?
+a) 1
+b) 0
+c) -1
+d) It depends
+b
+Which of the following is a loop structure in Java?
+a) switch
+b) loop
+c) repeat
+d) while
+d
