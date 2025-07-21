@@ -54,6 +54,30 @@ This is a simple desktop application developed using **Java (NetBeans)** for a b
 
 ---
 
+## 🖼️ Screenshots
+
+**1) The login/signup screen**   
+<img src="screenshots/Screenshot1.png" width="350" height="331"/><br/>  
+<br/>
+
+**2) Main menu to browse for items**  
+<img src="screenshots/Screenshot2.png" width="350" height="331"/><br/>  
+<br/>
+
+**3) Cart page**    
+<img src="screenshots/Screenshot3.png" width="350" height="331"/><br/>  
+<br/>
+
+**4) Checkout page **    
+<img src="screenshots/Screenshot4.png" width="350" height="331"/><br/>  
+<br/>
+
+**5) Receipt after payment successful**    
+<img src="screenshots/Screenshot5.png" width="350" height="331"/><br/>  
+<br/>
+
+---
+
 ## ✅ Future Improvements
 
 🔐 Add real user account management with encrypted passwords  

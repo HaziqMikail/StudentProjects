@@ -43,7 +43,23 @@ Expense tracker/
   
 ---
 
-## Screenshot
+## 🖼️ Screenshots
+
+**1) The main screen**   
+<img src="screenshots/Screenshot1.png" width="350" height="331"/><br/>  
+<br/>
+
+**2) User can add item based on category**  
+<img src="screenshots/Screenshot2.png" width="350" height="331"/><br/>  
+<br/>
+
+**3) User can view history based on month**    
+<img src="screenshots/Screenshot3.png" width="350" height="331"/><br/>  
+<br/>
+
+**4) After item is added, user can add more items or view history**    
+<img src="screenshots/Screenshot5.png" width="350" height="331"/><br/>  
+<br/>
 
 ---
 
