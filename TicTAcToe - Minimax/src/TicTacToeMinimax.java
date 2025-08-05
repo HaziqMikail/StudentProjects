@@ -4,12 +4,12 @@ import java.awt.event.*;
 
 /**
  * TicTacToeMinimax
- * A GUI-based Tic Tac Toe game using Minimax algorithm for unbeatable AI.
- * Features score tracking, AI logic, and simple UI using Java Swing.
+ * A simple Tic Tac Toe game using Java Swing and Minimax algorithm for unbeatable AI.
+ * Tracks scores and alternates turns between player and AI.
  */
 public class TicTacToeMinimax {
     private JFrame frame;
-    private JButton[][] boardButtons;
+    private JButton[][] boardButtons; // 3x3 grid buttons
     private JLabel statusLabel;
     private JLabel scoreLabel;
     private int playerScore = 0;
@@ -17,16 +17,16 @@ public class TicTacToeMinimax {
     private boolean isPlayerTurn = true;
 
     /**
-     * Constructor - Initializes the game window and UI components.
+     * Constructor - Sets up the game window, layout, and UI components.
      */
     public TicTacToeMinimax() {
-        // Main game frame setup
+        // Setup the main window
         frame = new JFrame("Tic Tac Toe - Minimax AI");
         frame.setSize(500, 600);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLayout(new BorderLayout());
 
-        // --- Top Panel: Scoreboard and turn status ---
+        // --- Top panel: Displays score and turn information ---
         JPanel topPanel = new JPanel(new GridLayout(3, 1));
 
         JLabel titleLabel = new JLabel("SCOREBOARD", SwingConstants.CENTER);
@@ -37,18 +37,17 @@ public class TicTacToeMinimax {
 
         statusLabel = new JLabel("Turn: Player", SwingConstants.CENTER);
         statusLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        statusLabel.setForeground(Color.BLACK);
 
         topPanel.add(titleLabel);
         topPanel.add(scoreLabel);
         topPanel.add(statusLabel);
         frame.add(topPanel, BorderLayout.NORTH);
 
-        // --- Center Panel: Game board (3x3 grid) ---
+        // --- Center panel: 3x3 Tic Tac Toe board ---
         JPanel boardPanel = new JPanel(new GridLayout(3, 3));
         boardButtons = new JButton[3][3];
 
-        // Create 3x3 grid buttons and attach event listeners
+        // Initialize each button in the grid
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 JButton button = new JButton("");
@@ -63,7 +62,7 @@ public class TicTacToeMinimax {
 
         frame.add(boardPanel, BorderLayout.CENTER);
 
-        // --- Bottom Panel: Play Again and End Game buttons ---
+        // --- Bottom panel: Play Again and End Game buttons ---
         JPanel bottomPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 20, 10));
         JButton resetButton = new JButton("Play Again");
         JButton exitButton = new JButton("End Game");
@@ -75,22 +74,24 @@ public class TicTacToeMinimax {
         bottomPanel.add(exitButton);
         frame.add(bottomPanel, BorderLayout.SOUTH);
 
-        frame.setVisible(true); // Show the frame
+        frame.setVisible(true); // Show the window
     }
 
     /**
-     * Handles player's move when they click a cell.
+     * Handles player's move when a button is clicked.
      */
     private void handlePlayerMove(int row, int col) {
         JButton btn = boardButtons[row][col];
-        if (!btn.getText().equals("") || !isPlayerTurn) return; // Invalid move
 
-        btn.setText("O");
-        btn.setForeground(Color.BLUE); // Player uses "O"
+        // Ignore if cell is already taken or not player's turn
+        if (!btn.getText().equals("") || !isPlayerTurn) return;
+
+        btn.setText("O"); // Player uses "O"
+        btn.setForeground(Color.BLUE);
         statusLabel.setText("Turn: AI");
         isPlayerTurn = false;
 
-        // Check if player won
+        // Check if the player has won
         if (checkWinner("O")) {
             playerScore++;
             updateScoreboard();
@@ -99,28 +100,28 @@ public class TicTacToeMinimax {
             return;
         }
 
-        // Check for draw
+        // If it's a draw (board is full), reset
         if (isBoardFull()) {
             JOptionPane.showMessageDialog(frame, "It's a draw!");
             resetBoard();
             return;
         }
 
-        // Small delay to simulate AI thinking
+        // Delay AI move slightly to simulate thinking
         Timer timer = new Timer(300, e -> handleAIMove());
         timer.setRepeats(false);
         timer.start();
     }
 
     /**
-     * Handles AI move using the Minimax algorithm.
+     * AI plays using Minimax algorithm to find the best move.
      */
     private void handleAIMove() {
-        Move best = getBestMove(); // Get best move from AI
-        boardButtons[best.row][best.col].setText("X");
-        boardButtons[best.row][best.col].setForeground(Color.RED); // AI uses X
+        Move best = getBestMove(); // Calculate best move
+        boardButtons[best.row][best.col].setText("X"); // AI uses "X"
+        boardButtons[best.row][best.col].setForeground(Color.RED);
 
-        // Check if AI won
+        // Check if AI has won
         if (checkWinner("X")) {
             aiScore++;
             updateScoreboard();
@@ -129,52 +130,62 @@ public class TicTacToeMinimax {
             return;
         }
 
-        // Check for draw
+        // If it's a draw
         if (isBoardFull()) {
             JOptionPane.showMessageDialog(frame, "It's a draw!");
             resetBoard();
             return;
         }
 
-        // Switch turn back to player
+        // Switch turn to player
         statusLabel.setText("Turn: Player");
         isPlayerTurn = true;
     }
 
     /**
-     * Updates the scoreboard label.
+     * Update the scoreboard label with current scores.
      */
     private void updateScoreboard() {
         scoreLabel.setText("Player: " + playerScore + "   |   AI: " + aiScore);
     }
 
     /**
-     * Checks if a player has won with the given symbol ("X" or "O").
+     * Check if a given symbol ("X" or "O") has won.
      */
     private boolean checkWinner(String mark) {
+        // Check rows and columns
         for (int i = 0; i < 3; i++) {
-            if (boardButtons[i][0].getText().equals(mark) &&
+            if (
+                boardButtons[i][0].getText().equals(mark) &&
                 boardButtons[i][1].getText().equals(mark) &&
-                boardButtons[i][2].getText().equals(mark)) return true;
+                boardButtons[i][2].getText().equals(mark)
+            ) return true;
 
-            if (boardButtons[0][i].getText().equals(mark) &&
+            if (
+                boardButtons[0][i].getText().equals(mark) &&
                 boardButtons[1][i].getText().equals(mark) &&
-                boardButtons[2][i].getText().equals(mark)) return true;
+                boardButtons[2][i].getText().equals(mark)
+            ) return true;
         }
 
-        if (boardButtons[0][0].getText().equals(mark) &&
+        // Check diagonals
+        if (
+            boardButtons[0][0].getText().equals(mark) &&
             boardButtons[1][1].getText().equals(mark) &&
-            boardButtons[2][2].getText().equals(mark)) return true;
+            boardButtons[2][2].getText().equals(mark)
+        ) return true;
 
-        if (boardButtons[0][2].getText().equals(mark) &&
+        if (
+            boardButtons[0][2].getText().equals(mark) &&
             boardButtons[1][1].getText().equals(mark) &&
-            boardButtons[2][0].getText().equals(mark)) return true;
+            boardButtons[2][0].getText().equals(mark)
+        ) return true;
 
         return false;
     }
 
     /**
-     * Checks if the board is full (no more moves).
+     * Check if the board is full (no empty cells left).
      */
     private boolean isBoardFull() {
         for (JButton[] row : boardButtons) {
@@ -186,7 +197,7 @@ public class TicTacToeMinimax {
     }
 
     /**
-     * Clears the board and resets for the next round.
+     * Clear the board and reset turn to player.
      */
     private void resetBoard() {
         for (JButton[] row : boardButtons) {
@@ -200,7 +211,7 @@ public class TicTacToeMinimax {
     }
 
     /**
-     * Helper class to represent a board move.
+     * Simple helper class to store a move's row and column.
      */
     private class Move {
         int row, col;
@@ -211,19 +222,19 @@ public class TicTacToeMinimax {
     }
 
     /**
-     * Gets the best move for the AI using the Minimax algorithm.
+     * Finds the best move for the AI using the Minimax algorithm.
      */
     private Move getBestMove() {
         int bestScore = Integer.MIN_VALUE;
         Move bestMove = new Move(0, 0);
 
-        // Try all empty cells
+        // Try every empty cell and simulate outcome
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 3; col++) {
                 if (boardButtons[row][col].getText().equals("")) {
-                    boardButtons[row][col].setText("X"); // Try move
-                    int score = minimax(0, false); // Minimize opponent's move
-                    boardButtons[row][col].setText(""); // Undo move
+                    boardButtons[row][col].setText("X"); // AI tries this move
+                    int score = minimax(0, false);       // Simulate player's response
+                    boardButtons[row][col].setText("");  // Undo move
 
                     if (score > bestScore) {
                         bestScore = score;
@@ -237,17 +248,23 @@ public class TicTacToeMinimax {
 
     /**
      * Minimax Algorithm:
-     * Simulates all possible game outcomes to choose the best move.
-     * @param depth    current depth in the game tree
-     * @param isAITurn true if it's AI's turn, false for player
-     * @return score representing the outcome (+10 win, -10 lose, 0 draw)
+     * This function helps the AI choose the best move.
+     * It checks all possible moves until the game ends (win, lose, or draw),
+     * then picks the best one based on the result.
+     *
+     * @param depth How deep the checking goes (how many moves ahead)
+     * @param isAITurn true = AI's turn, false = Player's turn
+     * @return A score: 1 = AI win, -1 = Player win, 0 = Draw
      */
+
     private int minimax(int depth, boolean isAITurn) {
-        if (checkWinner("X")) return 10 - depth;     // AI wins
-        if (checkWinner("O")) return depth - 10;     // Player wins
-        if (isBoardFull()) return 0;                 // Draw
+        // Base conditions
+        if (checkWinner("X")) return 10 - depth;  // AI wins
+        if (checkWinner("O")) return depth - 10;  // Player wins
+        if (isBoardFull()) return 0;              // Draw
 
         if (isAITurn) {
+            // AI's turn: maximize score
             int best = Integer.MIN_VALUE;
             for (int row = 0; row < 3; row++) {
                 for (int col = 0; col < 3; col++) {
@@ -255,12 +272,13 @@ public class TicTacToeMinimax {
                         boardButtons[row][col].setText("X");
                         int score = minimax(depth + 1, false);
                         boardButtons[row][col].setText("");
-                        best = Math.max(score, best);
+                        best = Math.max(best, score);
                     }
                 }
             }
             return best;
         } else {
+            // Player's turn: minimize AI's score
             int best = Integer.MAX_VALUE;
             for (int row = 0; row < 3; row++) {
                 for (int col = 0; col < 3; col++) {
@@ -268,7 +286,7 @@ public class TicTacToeMinimax {
                         boardButtons[row][col].setText("O");
                         int score = minimax(depth + 1, true);
                         boardButtons[row][col].setText("");
-                        best = Math.min(score, best);
+                        best = Math.min(best, score);
                     }
                 }
             }
@@ -277,7 +295,7 @@ public class TicTacToeMinimax {
     }
 
     /**
-     * Main method to start the application.
+     * Main entry point - launches the application.
      */
     public static void main(String[] args) {
         SwingUtilities.invokeLater(TicTacToeMinimax::new);
