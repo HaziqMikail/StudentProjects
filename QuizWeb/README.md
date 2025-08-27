@@ -4,6 +4,10 @@ A beginner-friendly **PHP & MySQL web application** that allows users to log in,
 It also includes an **Admin Dashboard** for managing quizzes, users, and results.  
 
 ---
+## Progress
+Still in development
+
+---
 
 ## 📌 Features
 
