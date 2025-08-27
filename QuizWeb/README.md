@@ -31,20 +31,10 @@ Still in development
 ## 🖥️ How to Run
 
 1. Install **XAMPP** or **Laragon**  
-2. Import the `quizweb.sql` database file into **phpMyAdmin**  
+2. Import the database from note.md file into **phpMyAdmin**  
 3. Place the project folder in the `htdocs` directory (XAMPP) or the `www` folder (Laragon)  
 4. Open `localhost/quizweb` in your browser  
 5. Register as a new user or login to start taking quizzes  
-
----
-
-## ✅ Future Improvements
-
-- Add timed quizzes and countdown timer  
-- Add leaderboard for top scores  
-- Improve UI with modern frameworks (Bootstrap / Tailwind)  
-- Implement user roles with advanced permissions  
-- Mobile-friendly version or Progressive Web App (PWA)  
 
 ---
 
