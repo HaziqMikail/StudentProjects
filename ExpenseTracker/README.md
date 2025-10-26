@@ -1,6 +1,6 @@
 # 💰 Daily Expense Tracker
 
-A simple yet functional web-based expense tracking system built with **PHP and **MySQL, allowing users to easily record, manage, and view daily expenses by date and category.
+A simple yet functional web-based expense tracking system built with **PHP** and **MySQL**, allowing users to easily record, manage, and view daily expenses by date and category.
 
 ---
 
@@ -42,11 +42,11 @@ User can view history based on month
 
 ## ✅ Future Improvements
 
-Add user authentication (login/register)
-Filter by week or year
-Export expenses to CSV/PDF
-Add data visualization (charts)
-Enable budget alerts
+Add user authentication (login/register)  
+Filter by week or year  
+Export expenses to CSV/PDF  
+Add data visualization (charts)  
+Enable budget alerts  
 
 ---
 
