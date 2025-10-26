@@ -1,3 +1,17 @@
+<?php
+require_once 'config.php';
+$conn = getDBConnection();
+
+// Fetch categories from database
+$categories = [];
+$result = $conn->query("SELECT name FROM categories ORDER BY name ASC");
+if ($result) {
+    while ($row = $result->fetch_assoc()) {
+        $categories[] = $row['name'];
+    }
+}
+$conn->close();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,8 +24,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       margin: 0;
+      padding: 20px;
     }
 
     .container {
@@ -32,6 +47,8 @@
     label {
       font-weight: bold;
       color: #555;
+      display: block;
+      margin-top: 10px;
     }
 
     .form-control {
@@ -55,18 +72,23 @@
       font-size: 16px;
       cursor: pointer;
       transition: background-color 0.3s;
+      margin-top: 10px;
     }
 
     button:hover {
       background-color: #0056b3;
     }
 
-    a {
-      display: block;
-      text-align: center;
+    .links {
+      display: flex;
+      justify-content: space-between;
       margin-top: 20px;
+    }
+
+    a {
       text-decoration: none;
       color: #007bff;
+      font-size: 14px;
     }
 
     a:hover {
@@ -84,6 +106,7 @@
       if (select.value === 'add_new') {
         customInput.classList.remove('hidden');
         customInput.required = true;
+        customInput.focus();
       } else {
         customInput.classList.add('hidden');
         customInput.required = false;
@@ -94,26 +117,30 @@
 <body>
   <div class="container">
     <h1>Daily Expense Tracker</h1>
-    <form action="list.php" method="POST">
+    <form action="save_expense.php" method="POST">
       <label>Category:</label>
       <select name="item" onchange="handleCategoryChange(this)" required class="form-control">
         <option value="">-- Select Category --</option>
-        <option value="Food">Food</option>
-        <option value="Transport">Transport</option>
-        <option value="Bills">Bills</option>
-        <option value="Shopping">Shopping</option>
-        <option value="add_new">➕ Add New Category</option>
+        <?php foreach ($categories as $cat): ?>
+          <option value="<?= htmlspecialchars($cat) ?>"><?= htmlspecialchars($cat) ?></option>
+        <?php endforeach; ?>
+        <option value="add_new">Add New Category</option>
       </select>
 
-      <input type="text" name="custom_item" id="customCategory" class="form-control hidden" placeholder="Enter new category">
+      <input type="text" name="custom_item" id="customCategory" class="form-control hidden" 
+             placeholder="Enter new category name">
 
-      <label>Amount (MYR):</label>
-      <input type="number" name="amount" step="0.01" required class="form-control">
+      <label>Amount (RM):</label>
+      <input type="number" name="amount" step="0.01" required class="form-control" 
+             placeholder="0.00" min="0.01">
 
       <button type="submit">Add Expense</button>
     </form>
 
-    <a href="history.php">View Expense History</a>
+    <div class="links">
+      <a href="history.php">View History</a>
+      <a href="manage_categories.php">Manage Categories</a>
+    </div>
   </div>
 </body>
 </html>

@@ -29,21 +29,30 @@ A simple, beginner-friendly **PHP + HTML** web app that allows users to **add an
 1. **Install [XAMPP](https://www.apachefriends.org/) or any local PHP server.**
 2. Place the project inside the `htdocs` folder. For example: C:\xampp\htdocs\Portfolio\Expense tracker\
 3. Start **Apache** from XAMPP.
-4. Open your browser and go to: http://localhost/Portfolio/ExpenseTracker/main.html  
- 
+4. Open your browser and go to: http://localhost/Portfolio/ExpenseTracker/main.html
+
 ---
 
 ## 📂 Folder Structure
 
-Expense tracker/
-├── main.html # Add new expense
-├── history.php # View past expenses
-├── list.php # Save to expenses.txt
+Expense tracker/  
+├── main.html # Add new expense  
+├── history.php # View past expenses  
+├── list.php # Save to expenses.txt  
 ├── expenses.txt # Stored data
 
 ---
 
-## Screenshot
+## 🎮 Screenshot
+
+![Gameplay Screenshot](screenshots/Screenshot1.png)
+The main screen  
+![Gameplay Screenshot](screenshots/Screenshot2.png)
+User can add item based on category  
+![Gameplay Screenshot](screenshots/Screenshot3.png)
+After item is added, user can add more items or view history  
+![Gameplay Screenshot](screenshots/Screenshot5.png)
+User can view history based on month
 
 ---
 
